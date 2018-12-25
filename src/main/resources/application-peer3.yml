@@ -1,0 +1,11 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:2222/eureka/,http://127.0.0.1:1111/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+spring:
+  application:
+    name: eureka3
+server:
+  port: 3333
