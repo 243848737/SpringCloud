@@ -2,6 +2,7 @@ package com.imooc.order.controller;
 
 import com.imooc.order.VO.ResultVO;
 import com.imooc.order.converter.OrderForm2OrderDTOConverter;
+import com.imooc.order.dataobject.OrderDetail;
 import com.imooc.order.dto.OrderDTO;
 import com.imooc.order.enums.ResultEnum;
 import com.imooc.order.exception.OrderException;
@@ -12,11 +13,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,6 +31,7 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    @PostMapping("/create")
     public ResultVO<Map<String, String>> create(@Valid OrderForm orderForm,
                                                 BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
@@ -50,4 +52,6 @@ public class OrderController {
         map.put("orderId", result.getOrderId());
         return ResultVOUtil.success(map);
     }
+
+
 }
