@@ -1,5 +1,6 @@
 package com.imooc.product.service;
 
+import com.imooc.product.DTO.CartDTO;
 import com.imooc.product.dataobject.ProductInfo;
 import org.springframework.stereotype.Service;
 
@@ -20,4 +21,11 @@ public interface ProductService {
      * @return
      */
     List<ProductInfo> findList(List<String> productIdList);
+
+
+    /**
+     * 扣库存
+     * @param cartDTOList
+     */
+    void decreaseStock(List<CartDTO> cartDTOList);
 }
