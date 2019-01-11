@@ -1,4 +1,4 @@
-package com.imooc.product;
+package com.imooc.product.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class ProductApplication {
+public class ServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProductApplication.class, args);
+        SpringApplication.run(ServerApplication.class, args);
     }
 
 }
