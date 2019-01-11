@@ -11,12 +11,20 @@
     <groupId>com.imooc</groupId>
     <artifactId>product</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>product</name>
     <description>Demo project for Spring Boot</description>
+
+    <modules>
+        <module>client</module>
+        <module>common</module>
+        <module>server</module>
+    </modules>
 
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.RC1</spring-cloud.version>
+        <project-common.version>0.0.1-SNAPSHOT</project-common.version>
     </properties>
 
     <dependencies>
@@ -60,6 +68,11 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.imooc</groupId>
+                <artifactId>common</artifactId>
+                <version>${project-common.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
