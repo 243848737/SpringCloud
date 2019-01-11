@@ -2,7 +2,6 @@ package com.imooc.product.common;
 
 import lombok.Data;
 
-import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
 
