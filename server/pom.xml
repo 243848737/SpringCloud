@@ -31,10 +31,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.imooc.order</groupId>
-            <artifactId>common</artifactId>
-        </dependency>
     </dependencies>
 
 </project>
