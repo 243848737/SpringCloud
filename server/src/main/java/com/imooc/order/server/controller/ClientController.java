@@ -1,8 +1,10 @@
 package com.imooc.order.server.controller;
 
-import com.imooc.order.server.client.ProductClient;
 import com.imooc.order.server.dataobject.ProductInfo;
 import com.imooc.order.server.dto.CartDTO;
+import com.imooc.product.client.ProductClient;
+import com.imooc.product.common.DecreaseStockInput;
+import com.imooc.product.common.ProductInfoOutPut;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -59,14 +61,14 @@ public class ClientController {
 
     @GetMapping("/getProductList")
     public String getProductList(){
-        List<ProductInfo> productInfoList=productClient.listForOrder(Arrays.asList("157875196366160022"));
+        List<ProductInfoOutPut> productInfoList=productClient.listForOrder(Arrays.asList("157875196366160022"));
         log.info("productInfoList{}",productInfoList);
         return "ok";
     }
 
     @GetMapping("/decreaseStock")
     public String decreaseStock(){
-        productClient.decreaseStock(Arrays.asList(new CartDTO("164103465734242707",3)));
+        productClient.decreaseStock(Arrays.asList(new DecreaseStockInput("164103465734242707",3)));
         return "ok";
     }
 }
