@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.imooc</groupId>
-    <artifactId>client</artifactId>
+    <artifactId>product-client</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>client</name>
+    <name>product-client</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -38,7 +38,7 @@
 
         <dependency>
             <groupId>com.imooc</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>product-common</artifactId>
         </dependency>
     </dependencies>
 

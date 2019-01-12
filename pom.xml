@@ -40,7 +40,7 @@
             </dependency>
             <dependency>
                 <groupId>com.imooc</groupId>
-                <artifactId>common</artifactId>
+                <artifactId>product-common</artifactId>
                 <version>${project-common.version}</version>
             </dependency>
         </dependencies>
