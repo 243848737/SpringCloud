@@ -10,12 +10,14 @@ import com.imooc.product.server.enums.ResutlEnum;
 import com.imooc.product.server.exception.ProductException;
 import com.imooc.product.server.repository.ProductInfoRepository;
 import com.imooc.product.server.service.ProductService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -30,7 +32,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductInfoOutPut> findList(List<String> productIdList) {
-        return productInfoRepository.findByProductIdIn(productIdList);
+        return productInfoRepository.findByProductIdIn(productIdList).stream()
+                .map(e -> {
+                    ProductInfoOutPut outPut=new ProductInfoOutPut();
+                    BeanUtils.copyProperties(e,outPut);
+                    return outPut;
+                }).collect(Collectors.toList());
     }
 
     @Override
