@@ -1,0 +1,18 @@
+#œÓƒø≈‰÷√
+spring:
+  application:
+    name: config
+  #config÷–git≈‰÷√
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/243848737/config-repo.git
+          username: 243848737
+          password: Bp666888
+          basedir: D://basedir
+#Eureka≈‰÷√
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
