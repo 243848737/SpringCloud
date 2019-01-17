@@ -1,8 +1,6 @@
-#ÏîÄ¿ÅäÖÃ
 spring:
   application:
     name: config
-  #configÖĞgitÅäÖÃ
   cloud:
     config:
       server:
@@ -10,9 +8,18 @@ spring:
           uri: https://github.com/243848737/config-repo.git
           username: 243848737
           password: Bp666888
-          basedir: D://basedir
-#EurekaÅäÖÃ
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: 123456
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+# å…è®¸/actuator/bus-refreshæ¥å£è¢«å¤–éƒ¨è°ƒç”¨
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
