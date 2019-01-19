@@ -7,11 +7,14 @@ spring:
         enabled: true
         service-id: config
       profile: dev
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: admin
-    password: 123456
+#    stream:
+#      bindings: #服务的整合处理
+#      outputMyMessage:
+#        destination: studyExchange # 表示要使用的Exchange名称定义
+#        content-type: application/json # 设置消息类型，本次为对象json，如果是文本则设置“text/plain”
+#      inputMyMessage:
+#        destination: studyExchange # 表示要使用的Exchange名称定义
+#        content-type: application/json # 设置消息类型，本次为对象json，如果是文本则设置“text/plain”
 eureka:
   client:
     service-url:

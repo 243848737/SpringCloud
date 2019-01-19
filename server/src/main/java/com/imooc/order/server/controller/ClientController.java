@@ -1,7 +1,5 @@
 package com.imooc.order.server.controller;
 
-import com.imooc.order.server.dataobject.ProductInfo;
-import com.imooc.order.server.dto.CartDTO;
 import com.imooc.product.client.ProductClient;
 import com.imooc.product.common.DecreaseStockInput;
 import com.imooc.product.common.ProductInfoOutPut;
