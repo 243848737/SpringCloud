@@ -10,11 +10,13 @@ import com.imooc.order.server.form.OrderForm;
 import com.imooc.order.server.service.OrderService;
 import com.imooc.order.server.utils.ResultVOUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.sql.OracleJoinFragment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -55,4 +57,13 @@ public class OrderController {
     }
 
 
+    /**
+     * 完结账单
+     * @param orderId
+     * @return
+     */
+    @PostMapping("/finish")
+    public ResultVO finish(@RequestParam("orderId")String orderId){
+        return ResultVOUtil.success(orderService.finsh(orderId));
+    }
 }
