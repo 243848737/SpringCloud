@@ -7,6 +7,11 @@ spring:
         enabled: true
         service-id: config
       profile: dev
+  sleuth:
+    sampler:
+      probability: 1
+  zipkin:
+    base-url: http://172.16.15.89:9411
 eureka:
   client:
     service-url:
