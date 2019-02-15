@@ -14,7 +14,8 @@ import java.util.List;
  * Created by：白鹏
  * 2019/1/3 16:41
  */
-@FeignClient(name = "product",fallback = ProductClient.ProductClientFallback.class)
+//@FeignClient(name = "product",fallback = ProductClient.ProductClientFallback.class)
+@FeignClient(name = "product")
 public interface ProductClient {
 
     @GetMapping("/msg")

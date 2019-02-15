@@ -80,11 +80,11 @@ public class ProductController
      */
     @PostMapping("/listForOrder")
     public List<ProductInfoOutPut> listForOrder(@RequestBody List<String> productIdList){
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
          List<ProductInfoOutPut> list=productService.findList(productIdList);
         return list;
     }
