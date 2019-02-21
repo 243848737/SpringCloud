@@ -5,9 +5,11 @@ import com.imooc.product.common.DecreaseStockInput;
 import com.imooc.product.common.ProductInfoOutPut;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,28 +26,29 @@ public class ClientController {
     @Autowired
     private LoadBalancerClient loadBalancerClient;
 
-//    @Autowired
-//    private RestTemplate restTemplate;
+    @Autowired
+    private RestTemplate restTemplate;
 
-//    @GetMapping("/getProductMsg")
-//    public String getProductMsg(){
+    @GetMapping("/getProductMsgRest")
+    public String getProductMsgRest(){
 //        //第一种方式 直接使用RestTemplate 写死URL
 ////        RestTemplate restTemplate=new RestTemplate();
 ////        String response=restTemplate.getForObject("http://localhost:8080/msg",String.class);
 ////        log.info("response:{}",response);
 //
-//        //第二种方式 利用LoadBalancerClient 通过应用名称获取url 使用RestTemplate 访问
-//        ServiceInstance instance=loadBalancerClient.choose("PRODUCT");
-//        String url=String.format("http://%s:%s",instance.getHost(),instance.getPort());
-//        RestTemplate restTemplate=new RestTemplate();
-//        String response=restTemplate.getForObject("http://localhost:8080/msg",String.class);
-//        log.info("response:{}",response);
+        //第二种方式 利用LoadBalancerClient 通过应用名称获取url 使用RestTemplate 访问
+        ServiceInstance instance=loadBalancerClient.choose("PRODUCT");
+        String url=String.format("http://%s:%s",instance.getHost(),instance.getPort());
+        RestTemplate restTemplate=new RestTemplate();
+        String response=restTemplate.getForObject("http://localhost:8080/msg",String.class);
+        log.info("response:{}",response);
 //
 //        //第三种 理由@LoadBalanced 可以直接在restTemplatel里直接使用应用名称
 ////        String response=restTemplate.getForObject("http://PRODUCT/msg",String.class);
 ////        log.info("response:{}",response);
 //        return response;
-//    }
+        return null;
+    }
 
     @Autowired
     private ProductClient productClient;
