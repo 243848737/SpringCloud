@@ -49,6 +49,6 @@ public class HystrixController {
     }
 
     public String defaultFallback(){
-        return "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ";
+        return "";
     }
 }
